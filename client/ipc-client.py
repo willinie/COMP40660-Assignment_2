@@ -16,8 +16,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 #print('Received', repr(data))
         print('Received', repr(data.decode()))
         
+    s.sendall('request'.encode())
     avg = s.recv(1024)
+    print('Received', repr(avg.decode()))
+    s.sendall('request'.encode())
     med = s.recv(1024)
+    print('Received', repr(med.decode()))
+    s.sendall('request'.encode())
     sd = s.recv(1024)
+    print('Received', repr(sd.decode()))
     
     print("Received " + "Average: " + str(avg) + ", Median: " + str(med) + ", Stdev: " + str(sd))

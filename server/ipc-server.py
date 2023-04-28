@@ -15,10 +15,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     received = []
     with conn:
         print('Connected by', addr)
-        while True:
+        for i in range(50):
             data = conn.recv(1024)
-            if not data:
-                break
             received.append(int(data.decode()))
             conn.sendall(data)
         
@@ -30,8 +28,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         sd = statistics.stdev(received)
 
         # encode to binary to send to client
+        conn.recv(1024)
         conn.sendall(str(avg).encode())
+        conn.recv(1024)
         conn.sendall(str(med).encode())
+        conn.recv(1024)
         conn.sendall(str(sd).encode())
-        print("Sent " + "Average: " + str(avg) +
-              ", Median: " + str(med) + ", Stdev: " + str(sd))
+        print("Sent " + "Average: " + str(avg) + ", Median: " + str(med) + ", Stdev: " + str(sd))
