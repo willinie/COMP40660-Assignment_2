@@ -12,15 +12,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.listen()
     conn, addr = s.accept()
 
+    received = []
     with conn:
-        # print('Connected by', addr)
-        received = []
+        print('Connected by', addr)
         while True:
             data = conn.recv(1024)
             if not data:
                 break
-            received.append(data.decode())
-            # conn.sendall(data)
+            received.append(int(data.decode()))
+            conn.sendall(data)
+        
+#        print(received)
 
         # once all the data has been received from client
         avg = statistics.mean(received)
