@@ -2,4 +2,10 @@
 UCD COMP40660 Wireless Networking Group Assignment -- Edge Computing 
 
 * This is a group project completed by Zaiyuan(22205209) and Sophie(22209850)
-* Task 1 docker image: https://hub.docker.com/r/willinie/task1/tags
+* This project consists of two tasks, which are cleared documented in the word file. 
+* The detailed steps to run the project can be found in the word file and demonstration video.
+* Task 1
+  1. docker image: https://hub.docker.com/r/willinie/task1/tags
+* Task 2
+  1. Task2-Part1
+  2. Task2-Part2
